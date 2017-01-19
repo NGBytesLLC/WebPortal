@@ -4775,12 +4775,12 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   text-align: center;
 }
 
-.features-3 .info {
+#partnership .info {
   max-width: none;
   margin: 0 auto;
   padding: 10px 0 0px;
 }
-.features-3 .phone-container {
+#partnership .phone-container {
   max-width: 200px;
   margin: 0 auto;
 }
