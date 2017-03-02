@@ -23,12 +23,11 @@
 
 		<style>
 			.navbar.navbar-transparent .navbar-header #logo {
-				background-image: url('assets/img/logoblack.png');
+				background-image: url('assets/img/logo.png');
 				height: 35px;
 				width: 130px;
 				background-size: cover;
 			}
-
 			.navbar.navbar-color-on-scroll:not(.navbar-transparent) .navbar-header #logo {
 				background-image: url('assets/img/logoblack.png');
 				height: 35px;
@@ -36,15 +35,24 @@
 				background-size: cover;
 			}
 
-			.invite {
-				color: #333 !important;
-				font-size: 1.3em;
-			}
-
-			.title {
-				color: #333 !important;
+			.page-header {
+				background-image: linear-gradient(160deg, rgb(6, 5, 48) 5%, rgb(25, 109, 130) 40%, rgb(255, 255, 255) 95%);
+				background-size: cover;
 			}
 		</style>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/588b8e773ee11a739fc9b0d7/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 	</head>
 
 	<body class="index-page" id="top">
@@ -91,7 +99,7 @@
 			</div>
 		</nav>
 
-		<div class="page-header clear-filter" data-parallax="active" style="background-size: cover; background-image: url('assets/img/back.jpg');">
+		<div class="page-header clear-filter" data-parallax="active">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 invite">
@@ -101,11 +109,14 @@
 						<a href="#" class="btn btn-danger btn-lg">
 							<i class="fa fa-check-square"></i> Register your Project
 						</a>
-						<a href="#" class="btn btn-info btn-lg">
+						<a href="#partnership" id="show-partnership" class="btn btn-success btn-lg">
 							<i class="fa fa-handshake-o"></i> Be a Partner
 						</a>
 					</div>
-				</div>
+					<div class="col-md-6 text-right">
+						<img style="margin-top: -4em;width: 400px;" src="assets/img/bulb_alpha.png">
+					</div>
+				</div>				
 			</div>
 		</div>
 
@@ -391,6 +402,17 @@
 			</div>
 		</footer>
 	</div>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/588b8e773ee11a739fc9b0d7/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 </body>
 
@@ -406,6 +428,7 @@
 <script>
 	$(document).ready(function(){
 		$('li > a').smoothScroll();
+		$('#show-partnership').smoothScroll();
 		$('.navbar-brand').smoothScroll();
 	});
 </script>

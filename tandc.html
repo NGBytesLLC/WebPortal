@@ -47,6 +47,24 @@
 				min-height: 500px;
 				padding: 0 80px;
 			}
+			
+			.back-to-top {
+ 				background: none;
+				margin: 0;
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				z-index: 100;
+				display: none;
+				text-decoration: none;
+				color: #aaa;
+				margin-right: 2em;
+				margin-bottom: 6em;
+			}
+
+			.back-to-top i {
+				  font-size: 60px;
+			}
 		</style>
 	</head>
 
@@ -214,6 +232,10 @@
 			</div>
 			<div class="section-space"></div>
 		</div>
+		
+		<a href="#top" class="back-to-top" style="display: none;">
+			<i class="fa fa-arrow-circle-up"></i>
+		</a>
 
 		<footer class="footer">
 			<div class="container">
@@ -247,6 +269,17 @@
 			</div>
 		</footer>
 	</div>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/588b8e773ee11a739fc9b0d7/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 </body>
 
@@ -262,6 +295,17 @@
 <script>
 	$(document).ready(function(){
 		$('.terms-item > a').smoothScroll({offset:-70});
+		$('.back-to-top').smoothScroll({offset:-70});
+		
+		var offset = 70;
+		var duration = 300;
+		jQuery(window).scroll(function() {
+				if (jQuery(this).scrollTop() > offset) {
+				jQuery('.back-to-top').fadeIn(duration);
+			} else {
+				jQuery('.back-to-top').fadeOut(duration);
+			}
+		});		
 	});
 </script>
 

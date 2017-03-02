@@ -2605,7 +2605,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-transparent {
   background-color: transparent;
   box-shadow: none;
-  color: #333;
+  color: #eee;
   padding-top: 25px;
 }
 .navbar.navbar-transparent .logo-container .brand {
