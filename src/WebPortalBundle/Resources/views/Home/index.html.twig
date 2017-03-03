@@ -3,13 +3,13 @@
 {% block css %}
     <style>
         .navbar.navbar-transparent .navbar-header #logo {
-            background-image: url('assets/img/logo.png');
+            background-image: url('{{ asset('assets/img/logo.png') }}');
             height: 35px;
             width: 130px;
             background-size: cover;
         }
         .navbar.navbar-color-on-scroll:not(.navbar-transparent) .navbar-header #logo {
-            background-image: url('assets/img/logoblack.png');
+            background-image: url('{{ asset('assets/img/logoblack.png') }}');
             height: 35px;
             width: 130px;
             background-size: cover;

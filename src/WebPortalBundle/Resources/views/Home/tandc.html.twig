@@ -3,7 +3,7 @@
 {% block css %}
     <style>
         .navbar .navbar-header #logo {
-            background-image: url('assets/img/logoblack.png');
+            background-image: url('{{ asset('assets/img/logoblack.png') }}');
             height: 35px;
             width: 130px;
             background-size: cover;
@@ -177,6 +177,7 @@
         $(document).ready(function () {
             $('.terms-item > a').smoothScroll({offset: -70});
             $('.back-to-top').smoothScroll({offset: -70});
+            $('.navbar-brand').smoothScroll({offset: -70});
 
             var offset = 70;
             var duration = 300;
