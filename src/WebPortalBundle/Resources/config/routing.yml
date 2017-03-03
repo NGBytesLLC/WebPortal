@@ -1,8 +1,12 @@
 web_portal_homepage:
     path:     /
     defaults: { _controller: WebPortalBundle:Home:index }
-    
-web_portal_homepage:
+
+web_portal_tandc:
+    path:     /tandc
+    defaults: { _controller: WebPortalBundle:Home:tandc }
+
+web_portal_contact:
     path:     /contact
     defaults: { _controller: WebPortalBundle:Home:contact }
     

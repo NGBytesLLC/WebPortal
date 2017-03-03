@@ -11,6 +11,10 @@ class HomeController extends Controller {
     public function indexAction() {
         return $this->render('WebPortalBundle:Home:index.html.twig');
     }
+    
+    public function tandcAction() {
+        return $this->render('WebPortalBundle:Home:tandc.html.twig');
+    }
 
     public function contactAction(Request $request) {
         
