@@ -1,0 +1,9 @@
+web_portal_homepage:
+    path:     /
+    defaults: { _controller: WebPortalBundle:Home:index }
+    
+web_portal_homepage:
+    path:     /contact
+    defaults: { _controller: WebPortalBundle:Home:contact }
+    
+    

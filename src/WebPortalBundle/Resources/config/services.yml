@@ -1,0 +1,4 @@
+services:
+#    web_portal.example:
+#        class: WebPortalBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
