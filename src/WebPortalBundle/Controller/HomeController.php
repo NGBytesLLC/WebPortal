@@ -9,15 +9,6 @@ use WebPortalBundle\Entity\Contact;
 
 class HomeController extends Controller {
 
-    public function testAction() {
-        $contact = new Contact();
-        $contact->setEmail('yo@mail.com');
-        $contact->setFullname('Elpidio Valdés');
-        $contact->setPhone('702-444-2341');
-        $contact->setMessage('lfkj sldfshg ldfgshd;flgsj hd;sgl hdf;sgl dfhgsp;o gshd;fougysper8g ysdpfshgkldjfhgpaugrapisudgfalsfdgalskf glskdfhgapiusr hgas;kfjdhgs;dkfjhga;sury ;askjfhg;sadkghaidryga');
-        return $this->render('WebPortalBundle:Home:confirmation_mail.html.twig', array('contact' => $contact));
-    }
-    
     public function indexAction() {
         return $this->render('WebPortalBundle:Home:index.html.twig', array('mutant_navbar' => true));
     }
@@ -77,9 +68,9 @@ class HomeController extends Controller {
                 ->setSubject('New Contact Message Test')
                 ->setFrom($contact->getEmail())
                 ->setTo(array(
-                    'noy@ngbytes.com' => 'Luis Enrique'/*,
+                    'noy@ngbytes.com' => 'Luis Enrique',
                     'julio.garcia@ngbytes.com' => 'Julio',
-                    'rrubio@ngbytes.com' => 'Rene'*/
+                    'rrubio@ngbytes.com' => 'Rene'
                 ))
                 ->setBody($this->renderView('WebPortalBundle:Home:contact_mail.html.twig', array('contact' => $contact)), 'text/html');
         $this->get('mailer')->send($alert_message);
