@@ -211,22 +211,22 @@
                     <form role="form" id="contact-form" method="post">
                         <div class="form-group label-floating form-info">
                             <label class="control-label">Your name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" id="name" class="form-control">
                         </div>
                         <div class="form-group label-floating form-info">
                             <label class="control-label">Email address</label>
-                            <input type="email" name="email" class="form-control"/>
+                            <input type="email" id="email" class="form-control"/>
                         </div>
                         <div class="form-group label-floating form-info">
                             <label class="control-label">Phone</label>
-                            <input type="text" name="phone" class="form-control"/>
+                            <input type="text" id="phone" class="form-control"/>
                         </div>
                         <div class="form-group label-floating form-info">
                             <label class="control-label">Your message</label>
-                            <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                            <textarea class="form-control" id="message" rows="6"></textarea>
                         </div>
                         <div class="submit text-center">
-                            <input type="submit" class="btn btn-rose btn-raised btn-round" value="Contact Us" />
+                            <div id="submit" class="btn btn-rose btn-raised btn-round">Contact Us</div>
                         </div>
                     </form>
                 </div>
@@ -273,10 +273,64 @@
 
 {% block js %}
     <script>
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var numbers = /\d+/g;
+
         $(document).ready(function () {
             $('li > a').smoothScroll();
             $('#show-partnership').smoothScroll();
             $('.navbar-brand').smoothScroll();
+        });
+
+        $('#submit').on('click', function () {
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var message = $('#message').val();
+            var target = '';
+            var error = true;
+            if (name === '' || name.match(numbers)) {
+                target = 'Name';
+            } else if (!email.match(mailformat)) {
+                target = 'Email Address';
+            } else if (!phone.match(numbers)) {
+                target = 'Phone Number';
+            } else if (message === '') {
+                target = 'Message, it can\'t be empty';
+            } else {
+                error = false;
+            }
+            if (error) {
+                sweetAlert('Upps!', 'Plase, check your ' + target, 'error');
+            } else {
+                $('#submit').html('<span class="fa fa-spin fa-spinner"></span> Sending...');
+                $.ajax({
+                    method: 'post',
+                    url: '{{ path('web_portal_contact') }}',
+                    data: {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        message: message
+                    },
+                    success: function (response) {
+                        $('#submit').html('Contact Us');
+                        if (response.success) {
+                            sweetAlert('Thank you!', 'We have received your message. We will be glad to get in contact with you as soon as possible.', 'success');
+                            $('#name').val('');
+                            $('#phone').val('');
+                            $('#email').val('');
+                            $('#message').val('');
+                        } else {
+                            sweetAlert('Ups...!', 'Please, Can you ' + response.msg + '?', 'error');
+                        }
+                    },
+                    error: function () {
+                        $('#submit').html('Contact Us');
+                        sweetAlert('Ups...!', 'We are so sorry... Right now we can not take your message. But we are very interested, so please, try again later.', 'error');
+                    }
+                });
+            }
         });
     </script>
 {% endblock %}

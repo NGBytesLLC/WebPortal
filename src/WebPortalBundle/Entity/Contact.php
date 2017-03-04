@@ -65,8 +65,7 @@ class Contact
     
     
     function __construct() {
-        $now = new \DateTime();
-        $this->timestamp = $now->getTimestamp();
+        $this->timestamp = new \DateTime();
         $this->new = true;
     }
 

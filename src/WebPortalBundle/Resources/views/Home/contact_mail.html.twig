@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+            
+            body {
+                font-family: 'Open Sans', Arial;
+            }
+            .main-header {
+                text-align: center;
+                line-height: 2em;
+                font-size: 1.5em;
+                padding: .5em;
+                background-color: rgb(25, 79, 130);
+                color: #fff;
+            }
+            .footer {
+                font-size: .7em;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-header">NGBytes Notifications</div>
+        <h2>
+            New contact message from {{ contact.fullname }}
+        </h2>
+        <p>Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+        <p>Phone: <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></p>
+        <p>Received: {{ contact.timestamp|date('Y-m-d H:i:s') }}</p>
+        <p>{{ contact.message }}</p>
+        <div class="footer">
+            This message can contain sensitive information about people trying to contact <a href="http://www.ngbytes.com">NGBytes</a>. If you are not the target of this message, please delete it. We will also be glad to know about any issue or information leak, you can contact us at <a href="mailto:contact@ngbytes.com">contact@ngbytes.com</a><br>
+            &copy; <script>document.write(new Date().getFullYear())</script> NGBytes Corp.
+        </div>
+    </body>
+</html>

@@ -10,4 +10,6 @@ web_portal_contact:
     path:     /contact
     defaults: { _controller: WebPortalBundle:Home:contact }
     
-    
+web_portal_test:
+    path:     /test
+    defaults: { _controller: WebPortalBundle:Home:test }    
